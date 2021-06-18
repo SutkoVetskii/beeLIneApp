@@ -10,11 +10,13 @@ export const BasketDeviceList = observer(() => {
 
     const dropFromBasket = useCallback(item => {
         const { itemIndexBasket, itemIndexDevice } = getItemIndexes(device, item)
+
         if (device.basket[itemIndexBasket].amount === 1) {
             device.basket.splice(itemIndexBasket, 1)
         } else {
             device.basket[itemIndexBasket].amount -= 1
         }
+
         device.devices[itemIndexDevice].amount += 1
     }, [])
 

@@ -20,7 +20,6 @@ class DeviceController {
 
     async getAll(req, res) {
         let { brandId } = req.query
-
         const devices = await Device.findAndCountAll({ where: { brandId } })
         return res.json(devices)
     }

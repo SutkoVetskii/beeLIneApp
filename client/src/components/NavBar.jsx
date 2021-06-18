@@ -17,7 +17,10 @@ export const NavBar = observer(() => {
 
     return (
         <Navbar bg="primary" variant="dark">
-            <Navbar.Brand href="/">BeeApp</Navbar.Brand>
+            <Link to="/">
+                <Navbar.Brand>BeeApp</Navbar.Brand>
+            </Link>
+
             {user.isAuth ? (
                 <>
                     <Nav className="ml-auto">
@@ -41,7 +44,7 @@ export const NavBar = observer(() => {
                         <Link to="/basket">
                             <Button variant={'outline-light'} className="d-flex flex-row align-items-lg-end">
                                 <Image src={basketIcon} width={50} />
-                                {device.basket.length > 0 && device.basket.length}
+                                {device.basket.length > 0 && device.basket.reduce((sum, el) => sum + el.amount, 0)}
                             </Button>
                         </Link>
                     </Nav>

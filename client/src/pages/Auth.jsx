@@ -9,11 +9,12 @@ export const Auth = () => {
     const [isError, setIsError] = useState(false)
     const { user } = useContext(Context)
     let history = useHistory()
+
     const signIn = async () => {
         const response = await isAdmin(password)
         if (response.status === 200) {
             user.setIsAuth(true)
-            history.push('/')
+            history.push('/orders')
         } else {
             setIsError(true)
         }
